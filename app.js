@@ -1,15 +1,16 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const logger = require('morgan')
 const mongoose = require('mongoose')
-const  bodyParser = require('body-parser')
-const app = express();
+const app = express()
 //set up connet mongodb by mongoose 
-mongoose.connect('mongodb://localhots/nodejsapi',{
+mongoose.connect('mongodb://localhost/nodejsAPI',{
         useNewUrlParser: true,    
         useUnifiedTopology: true
 })
-    .then(() => console.log(' connect sucssec'))
+    .then(() => console.log('connect sucssec mongoose'))
     .catch(() => console.error(`connect database ${error}`))
+
 const users = require('./Routers/user')
 //middleware
 app.use(logger('dev'))

@@ -8,9 +8,9 @@ const UserSchema = new Schema({
     lastName:{
         type: String
     },
-    // email:{
-    //     type: String
-    // },
+    email:{
+        type: String
+    },
     decks: [{
         type: Schema.Types.ObjectId,
         ref: 'Deck'
