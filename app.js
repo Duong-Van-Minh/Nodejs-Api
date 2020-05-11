@@ -12,12 +12,13 @@ mongoose.connect('mongodb://localhost/nodejsAPI',{
     .catch(() => console.error(`connect database ${error}`))
 
 const users = require('./Routers/user')
+const decks = require('./Routers/Deck')
 //middleware
 app.use(logger('dev'))
 app.use(bodyParser.json())
 //routers
 app.use('/user' ,users);
-
+app.use('/decks' ,decks);
 // ruoter
 app.get('/', (req, res, next) => {
     return res.status(200).json({

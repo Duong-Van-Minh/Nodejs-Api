@@ -7,10 +7,10 @@ we can interact with mongoose in three diffirent ways
 const Deck = require('../models/Deck.models')
 const User = require('../models/User.models')
 
-const Joi = require('@hapi/joi')
-const idSchema = Joi.object().keys({
-    userID: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
-})
+// const Joi = require('@hapi/joi')
+// const idSchema = Joi.object().keys({
+//     userID: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
+// })
 
 //sytax callback
 /*const index = (req, res , next ) => {
@@ -64,7 +64,7 @@ const index = async (req, res, next) => {
     
 }
 const newUser = async (req, res, next) => {
-    const newUser = new User(req.body)
+    const newUser = new User(req.value.body)
     
     await newUser.save()
 
@@ -73,7 +73,7 @@ const newUser = async (req, res, next) => {
 
 const getUser = async (req, res, next) => {
     //console.log('req params', req.params)
-    const { userID } = req.params   
+    const { userID } = req.value.params   
     const user = await User.findById(userID)
     
     //return comback information
